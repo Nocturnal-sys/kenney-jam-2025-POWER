@@ -1,28 +1,28 @@
 [gd_scene load_steps=9 format=3 uid="uid://ppuxxoq6px0y"]
 
 [ext_resource type="Script" uid="uid://bi7ycr3tgt4eo" path="res://Scripts/lever.gd" id="1_ajwff"]
-[ext_resource type="Texture2D" uid="uid://be2awurt0iyk8" path="res://Assets/TileMaps/colored-transparent_packed.png" id="2_aipa8"]
+[ext_resource type="Texture2D" uid="uid://cgx0v4iu4dpxc" path="res://Assets/TileMaps/monochrome-transparent.png" id="2_ajwff"]
 [ext_resource type="Texture2D" uid="uid://bla7mwwviebwj" path="res://Assets/Sprites/e_key.png" id="3_1ww77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kwec"]
 size = Vector2(32, 11)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fhlr4"]
-atlas = ExtResource("2_aipa8")
-region = Rect2(48, 160, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_aipa8"]
+atlas = ExtResource("2_ajwff")
+region = Rect2(51, 170, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jjeqf"]
-atlas = ExtResource("2_aipa8")
-region = Rect2(64, 160, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ww77"]
+atlas = ExtResource("2_ajwff")
+region = Rect2(68, 170, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8di2w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fhlr4")
+"texture": SubResource("AtlasTexture_aipa8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jjeqf")
+"texture": SubResource("AtlasTexture_1ww77")
 }],
 "loop": true,
 "name": &"toggle",

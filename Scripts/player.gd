@@ -52,4 +52,3 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact"):
 		if ray.is_colliding() and ray.get_collider() is Door:
 			advance_level.emit()
-			print("next level!")

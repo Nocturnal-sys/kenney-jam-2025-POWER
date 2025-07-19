@@ -2,12 +2,18 @@ extends Level
 
 @export var puzzle_cogs : Array[Cog]
 
+
 @onready var fan: StaticBody2D = $Fan
-@onready var door: Door = $Door
+@onready var lever: Area2D = $Lever
 
 
 func _ready() -> void:
 	fan.set_physics_process(false)
+
+
+func _color_groups() -> void:
+	lever.modulate = Color("green")
+	pass
 
 
 func _toggle_fan():
@@ -18,11 +24,3 @@ func _toggle_fan():
 	else:
 		fan.set_physics_process(true)
 	fan.toggle_animation()
-
-
-
-func _on_player_advance_level() -> void:
-	print("moving on")
-	door.play_animation()
-	await get_tree().create_timer(3).timeout
-	LevelSwitcher.advance_level(next)

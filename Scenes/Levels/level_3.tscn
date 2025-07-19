@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=4 uid="uid://ctpoo45vr1vu2"]
+
+[ext_resource type="Script" uid="uid://b2paook80t7fu" path="res://Scripts/level.gd" id="1_us8ef"]
+[ext_resource type="PackedScene" uid="uid://dd6h8bkyemtnh" path="res://Scenes/TileMapLayers/world.tscn" id="2_nfly3"]
+[ext_resource type="PackedScene" uid="uid://3u3tid6n7jvg" path="res://Scenes/Components/player.tscn" id="3_t8c31"]
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_us8ef")
+metadata/_custom_type_script = "uid://b2paook80t7fu"
+
+[node name="World" parent="." instance=ExtResource("2_nfly3")]
+tile_map_data = PackedByteArray("AAAGAAcAAAALAAkAAAAHAAcAAAALAAkAAAAIAAcAAAALAAkAAAAJAAcAAAALAAkAAAAKAAcAAAALAAkAAAALAAcAAAALAAkAAAAMAAcAAAALAAkAAAANAAcAAAALAAkAAAAOAAcAAAALAAkAAAAPAAcAAAALAAkAAAAQAAcAAAALAAkAAAARAAcAAAALAAkAAAASAAcAAAALAAkAAAATAAcAAAALAAkAAAAUAAcAAAALAAkAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("3_t8c31")]
+position = Vector2(128, 96)

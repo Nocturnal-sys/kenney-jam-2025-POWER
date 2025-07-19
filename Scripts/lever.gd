@@ -21,9 +21,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			animated_sprite.frame += 1
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	prompt.show()
 
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(_body: Node2D) -> void:
 	prompt.hide()

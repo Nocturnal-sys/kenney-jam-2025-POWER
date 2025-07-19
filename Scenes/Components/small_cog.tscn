@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnto5pl03761b"]
+[gd_scene load_steps=7 format=3 uid="uid://dnto5pl03761b"]
 
 [ext_resource type="Script" uid="uid://bxndxms8t1tdy" path="res://Scripts/cog.gd" id="1_w0w5s"]
 [ext_resource type="Texture2D" uid="uid://h2nlq76ipmut" path="res://Assets/TileMaps/monochrome_tilemap_packed.png" id="2_04qiq"]
+[ext_resource type="Texture2D" uid="uid://bt8qxy1sv3c8k" path="res://Assets/Sprites/shaft.png" id="3_04qiq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kd67d"]
 atlas = ExtResource("2_04qiq")
@@ -33,3 +34,11 @@ metadata/_edit_group_ = true
 position = Vector2(8, -8)
 sprite_frames = SubResource("SpriteFrames_f5pli")
 animation = &"spinning"
+
+[node name="Shaft" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("3_04qiq")
+
+[node name="Shaft2" type="Sprite2D" parent="."]
+position = Vector2(8, 24)
+texture = ExtResource("3_04qiq")

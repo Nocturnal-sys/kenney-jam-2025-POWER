@@ -34,6 +34,7 @@ size = Vector2(16, 16)
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_7l2ec")
 script = ExtResource("1_u6u5o")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, -8)
