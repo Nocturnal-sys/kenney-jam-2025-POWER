@@ -1,19 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7bsiftd20vsd"]
+[gd_scene load_steps=3 format=3 uid="uid://b7bsiftd20vsd"]
 
 [ext_resource type="Script" uid="uid://bltar53o1woca" path="res://Scripts/game.gd" id="1_i10s3"]
-[ext_resource type="PackedScene" uid="uid://mqrqbs7bcf8c" path="res://Scenes/Levels/level_1.tscn" id="3_osokm"]
-[ext_resource type="PackedScene" uid="uid://3u3tid6n7jvg" path="res://Scenes/Components/player.tscn" id="4_o86a8"]
+[ext_resource type="PackedScene" uid="uid://chhr4wcn1fpbt" path="res://Scenes/Components/Menu/menu_button.tscn" id="2_72uep"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("levels")]
+[node name="MainMenu" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_i10s3")
-level_paths = Array[String](["res://Scenes/Levels/level_1.tscn", "res://Scenes/Levels/level_2.tscn"])
-levels = [NodePath("Level1"), null]
+next = "res://Scenes/Levels/level_1.tscn"
 
-[node name="Level1" parent="." instance=ExtResource("3_osokm")]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)
 
-[node name="Player" parent="." instance=ExtResource("4_o86a8")]
-position = Vector2(280, 290)
+[node name="Play" parent="ColorRect" instance=ExtResource("2_72uep")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 224.0
+offset_right = 360.0
+offset_bottom = 256.0
 
-[connection signal="advance_level" from="Level1" to="." method="_advance_level"]
-[connection signal="advance_level" from="Player" to="Level1" method="next_level"]
+[node name="Label" parent="ColorRect/Play/MarginContainer" index="0"]
+text = "Play"
+
+[node name="Options" parent="ColorRect" instance=ExtResource("2_72uep")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 264.0
+offset_right = 360.0
+offset_bottom = 296.0
+
+[node name="Label" parent="ColorRect/Options/MarginContainer" index="0"]
+text = "Options"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(320, 240)
+scale = Vector2(1, 0.910812)
+zoom = Vector2(3, 3)
+
+[connection signal="pressed" from="ColorRect/Play" to="." method="_on_play_pressed"]
+
+[editable path="ColorRect/Play"]
+[editable path="ColorRect/Options"]

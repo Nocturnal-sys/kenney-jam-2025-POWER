@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://chhr4wcn1fpbt"]
+
+[ext_resource type="Texture2D" uid="uid://bohmrwovhfnhm" path="res://Assets/Sprites/menu_button.png" id="1_0kbhp"]
+[ext_resource type="Script" uid="uid://o6wrniv4kk7m" path="res://Scripts/menu_button.gd" id="1_f3phf"]
+[ext_resource type="FontFile" uid="uid://b4a13jftw43sy" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_f3phf"]
+
+[node name="MenuButton" type="MarginContainer"]
+offset_right = 70.0
+offset_bottom = 21.0
+theme_override_constants/margin_left = 0
+script = ExtResource("1_f3phf")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_0kbhp")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 6
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f3phf")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

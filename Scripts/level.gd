@@ -1,7 +1,7 @@
 class_name Level
 extends Node2D
 
-signal advance_level(next_level : String)
+@export var next : String
 
 func next_level() -> void:
 	pass

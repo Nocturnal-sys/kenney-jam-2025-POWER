@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=4 uid="uid://bbyhwuf357c4t"]
+[gd_scene load_steps=5 format=4 uid="uid://bbyhwuf357c4t"]
 
 [ext_resource type="Script" uid="uid://b2paook80t7fu" path="res://Scripts/level.gd" id="1_v3rpw"]
 [ext_resource type="PackedScene" uid="uid://dd6h8bkyemtnh" path="res://Scenes/TileMapLayers/world.tscn" id="2_ucdhh"]
 [ext_resource type="PackedScene" uid="uid://cattutg5k2xwt" path="res://Scenes/TileMapLayers/back_ground.tscn" id="3_oylv5"]
+[ext_resource type="PackedScene" uid="uid://3u3tid6n7jvg" path="res://Scenes/Components/player.tscn" id="4_w2ac1"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_v3rpw")
 metadata/_custom_type_script = "uid://b2paook80t7fu"
 
 [node name="World" parent="." instance=ExtResource("2_ucdhh")]
-tile_map_data = PackedByteArray("AAAKABQAAAALAAwAAAALABQAAAALAAwAAAAMABQAAAALAAwAAAANABQAAAALAAwAAAAOABQAAAALAAwAAAAPABQAAAALAAwAAAAQABQAAAALAAwAAAARABQAAAALAAwAAAASABQAAAALAAwAAAATABQAAAALAAwAAAAUABQAAAALAAwAAAAVABQAAAALAAwAAAAWABQAAAALAAwAAAAXABQAAAALAAwAAAAYABQAAAALAAwAAAAZABQAAAALAAwAAAAaABQAAAALAAwAAAAbABQAAAALAAwAAAAVABMAAAANAAoAAAAVABIAAAANAAoAAAAVABEAAAANAAoAAAAVABAAAAANAAoAAAAVAA8AAAANAAoAAAAVAA4AAAANAAoAAAAVAA0AAAANAAoAAAAVAAwAAAANAAoAAAAVAAsAAAANAAoAAAAVAAoAAAANAAoAAAAVAAkAAAANAAoAAAAVAAgAAAANAAoAAAA=")
+tile_map_data = PackedByteArray("AAAKABQAAAALAAwAAAALABQAAAALAAwAAAAMABQAAAALAAwAAAANABQAAAALAAwAAAAOABQAAAALAAwAAAAPABQAAAALAAwAAAAQABQAAAALAAwAAAARABQAAAALAAwAAAASABQAAAALAAwAAAATABQAAAALAAwAAAAUABQAAAALAAwAAAA=")
 
 [node name="BackGround" parent="." instance=ExtResource("3_oylv5")]
+
+[node name="Player" parent="." instance=ExtResource("4_w2ac1")]
+position = Vector2(264, 296)

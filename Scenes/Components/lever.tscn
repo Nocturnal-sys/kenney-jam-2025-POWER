@@ -59,5 +59,9 @@ rotation = -1.5708
 rotates = false
 
 [node name="InputPrompt" type="Sprite2D" parent="Path2D/PathFollow2D"]
+visible = false
 rotation = 1.5708
 texture = ExtResource("3_1ww77")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

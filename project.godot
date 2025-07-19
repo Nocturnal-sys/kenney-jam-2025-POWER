@@ -14,6 +14,10 @@ config/name="kenney-jam-power"
 run/main_scene="uid://b7bsiftd20vsd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
+[autoload]
+
+LevelSwitcher="*res://Scripts/Autoloads/level_switcher.gd"
+
 [display]
 
 window/size/viewport_width=640

@@ -5,10 +5,10 @@ extends Level
 @onready var fan: StaticBody2D = $Fan
 @onready var door: Door = $Door
 
-const NEXT_LEVEL = "res://Scenes/Levels/level_2.tscn"
 
 func _ready() -> void:
 	fan.set_physics_process(false)
+
 
 func _toggle_fan():
 	for cog in puzzle_cogs:
@@ -20,11 +20,9 @@ func _toggle_fan():
 	fan.toggle_animation()
 
 
-func next_level():
-	print("moving on")
-	door.play_animation()
-	advance_level.emit(NEXT_LEVEL)
-
 
 func _on_player_advance_level() -> void:
-	pass # Replace with function body.
+	print("moving on")
+	door.play_animation()
+	await get_tree().create_timer(3).timeout
+	LevelSwitcher.advance_level(next)
