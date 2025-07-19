@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7bsiftd20vsd"]
+
+[ext_resource type="Script" uid="uid://bltar53o1woca" path="res://Scripts/game.gd" id="1_i10s3"]
+[ext_resource type="PackedScene" uid="uid://mqrqbs7bcf8c" path="res://Scenes/Levels/level_1.tscn" id="3_osokm"]
+[ext_resource type="PackedScene" uid="uid://3u3tid6n7jvg" path="res://Scenes/Components/player.tscn" id="4_o86a8"]
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("levels")]
+texture_filter = 1
+script = ExtResource("1_i10s3")
+level_paths = Array[String](["res://Scenes/Levels/level_1.tscn", "res://Scenes/Levels/level_2.tscn"])
+levels = [NodePath("Level1"), null]
+
+[node name="Level1" parent="." instance=ExtResource("3_osokm")]
+
+[node name="Player" parent="." instance=ExtResource("4_o86a8")]
+position = Vector2(280, 290)
+
+[connection signal="advance_level" from="Level1" to="." method="_advance_level"]
+[connection signal="advance_level" from="Player" to="Level1" method="next_level"]

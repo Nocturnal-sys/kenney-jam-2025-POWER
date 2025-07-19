@@ -1,36 +1,31 @@
 [gd_scene load_steps=9 format=3 uid="uid://ppuxxoq6px0y"]
 
-[ext_resource type="Texture2D" uid="uid://be2awurt0iyk8" path="res://Assets/TileMaps/colored-transparent_packed.png" id="1_4kwec"]
-[ext_resource type="Script" uid="uid://c17rwo1cuhv7l" path="res://scenes/lever.gd" id="1_qxmkn"]
-[ext_resource type="Texture2D" uid="uid://bla7mwwviebwj" path="res://Assets/Sprites/tile_0087.png" id="2_ncfea"]
+[ext_resource type="Script" uid="uid://bi7ycr3tgt4eo" path="res://Scripts/lever.gd" id="1_ajwff"]
+[ext_resource type="Texture2D" uid="uid://be2awurt0iyk8" path="res://Assets/TileMaps/colored-transparent_packed.png" id="2_aipa8"]
+[ext_resource type="Texture2D" uid="uid://bla7mwwviebwj" path="res://Assets/Sprites/e_key.png" id="3_1ww77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kwec"]
-size = Vector2(16, 11)
+size = Vector2(32, 11)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ncfea"]
-atlas = ExtResource("1_4kwec")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhlr4"]
+atlas = ExtResource("2_aipa8")
 region = Rect2(48, 160, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qxmkn"]
-atlas = ExtResource("1_4kwec")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjeqf"]
+atlas = ExtResource("2_aipa8")
 region = Rect2(64, 160, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8di2w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ncfea")
-}],
-"loop": true,
-"name": &"off",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_fhlr4")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qxmkn")
+"texture": SubResource("AtlasTexture_jjeqf")
 }],
 "loop": true,
-"name": &"on",
+"name": &"toggle",
 "speed": 5.0
 }]
 
@@ -43,19 +38,21 @@ point_count = 3
 [node name="Lever" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_qxmkn")
+script = ExtResource("1_ajwff")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(8, -5.5)
 shape = SubResource("RectangleShape2D_4kwec")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -6)
 sprite_frames = SubResource("SpriteFrames_8di2w")
-animation = &"on"
+animation = &"toggle"
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(9, -19)
 curve = SubResource("Curve2D_qxmkn")
+metadata/_edit_group_ = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 rotation = -1.5708
@@ -63,4 +60,4 @@ rotates = false
 
 [node name="InputPrompt" type="Sprite2D" parent="Path2D/PathFollow2D"]
 rotation = 1.5708
-texture = ExtResource("2_ncfea")
+texture = ExtResource("3_1ww77")

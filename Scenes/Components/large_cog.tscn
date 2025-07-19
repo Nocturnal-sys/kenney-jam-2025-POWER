@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dclo2ctqn2u5"]
+
+[ext_resource type="Script" uid="uid://bxndxms8t1tdy" path="res://Scripts/cog.gd" id="1_o4og1"]
+[ext_resource type="Texture2D" uid="uid://h2nlq76ipmut" path="res://Assets/TileMaps/monochrome_tilemap_packed.png" id="2_c35lh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ymno"]
+atlas = ExtResource("2_c35lh")
+region = Rect2(112, 288, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7vbe"]
+atlas = ExtResource("2_c35lh")
+region = Rect2(112, 304, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htkid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ymno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7vbe")
+}],
+"loop": true,
+"name": &"spinning",
+"speed": 5.0
+}]
+
+[node name="LargeCog" type="Node2D"]
+script = ExtResource("1_o4og1")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_htkid")
+animation = &"spinning"

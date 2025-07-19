@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://3u3tid6n7jvg"]
+[gd_scene load_steps=9 format=3 uid="uid://3u3tid6n7jvg"]
 
 [ext_resource type="Texture2D" uid="uid://c5a5iualwl786" path="res://Assets/Sprites/sprite_frames_transparent.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bp71odbnuu0bg" path="res://Scripts/player.gd" id="1_cvnsp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(80, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -19,10 +23,23 @@ region = Rect2(32, 16, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cvnsp")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_g2els")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -41,17 +58,21 @@ animations = [{
 radius = 7.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_cvnsp")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qlg0r")
 animation = &"idle"
+autoplay = "idle"
+
+[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(16, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_tuyoq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
+zoom = Vector2(2.5, 2.5)
