@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://3u3tid6n7jvg"]
+[gd_scene load_steps=10 format=3 uid="uid://3u3tid6n7jvg"]
 
 [ext_resource type="Texture2D" uid="uid://c5a5iualwl786" path="res://Assets/Sprites/sprite_frames_transparent.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bp71odbnuu0bg" path="res://Scripts/player.gd" id="1_cvnsp"]
@@ -57,8 +57,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
 radius = 7.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_coypj"]
+radius = 0.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_cvnsp")
 metadata/_edit_group_ = true
 
@@ -76,3 +80,9 @@ shape = SubResource("CircleShape2D_tuyoq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
+
+[node name="MoverDetector" type="Area2D" parent="."]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoverDetector"]
+shape = SubResource("CircleShape2D_coypj")

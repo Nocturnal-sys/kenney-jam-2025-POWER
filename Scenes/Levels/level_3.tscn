@@ -1,15 +1,101 @@
-[gd_scene load_steps=4 format=4 uid="uid://ctpoo45vr1vu2"]
+[gd_scene load_steps=8 format=4 uid="uid://ctpoo45vr1vu2"]
 
 [ext_resource type="Script" uid="uid://b2paook80t7fu" path="res://Scripts/level.gd" id="1_us8ef"]
 [ext_resource type="PackedScene" uid="uid://dd6h8bkyemtnh" path="res://Scenes/TileMapLayers/world.tscn" id="2_nfly3"]
 [ext_resource type="PackedScene" uid="uid://3u3tid6n7jvg" path="res://Scenes/Components/player.tscn" id="3_t8c31"]
+[ext_resource type="PackedScene" uid="uid://v2kdtlpmrdrl" path="res://Scenes/Components/fan_sideways.tscn" id="4_t8c31"]
+[ext_resource type="PackedScene" uid="uid://dclo2ctqn2u5" path="res://Scenes/Components/large_cog.tscn" id="5_167vu"]
+[ext_resource type="PackedScene" uid="uid://ppuxxoq6px0y" path="res://Scenes/Components/lever.tscn" id="5_rc141"]
+[ext_resource type="PackedScene" uid="uid://dnto5pl03761b" path="res://Scenes/Components/small_cog.tscn" id="6_x1k1j"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_us8ef")
 metadata/_custom_type_script = "uid://b2paook80t7fu"
 
 [node name="World" parent="." instance=ExtResource("2_nfly3")]
-tile_map_data = PackedByteArray("AAAGAAcAAAALAAkAAAAHAAcAAAALAAkAAAAIAAcAAAALAAkAAAAJAAcAAAALAAkAAAAKAAcAAAALAAkAAAALAAcAAAALAAkAAAAMAAcAAAALAAkAAAANAAcAAAALAAkAAAAOAAcAAAALAAkAAAAPAAcAAAALAAkAAAAQAAcAAAALAAkAAAARAAcAAAALAAkAAAASAAcAAAALAAkAAAATAAcAAAALAAkAAAAUAAcAAAALAAkAAAA=")
+tile_map_data = PackedByteArray("AAAGAAcAAAALAAkAAAAHAAcAAAALAAkAAAAIAAcAAAALAAkAAAAJAAcAAAALAAkAAAAKAAcAAAALAAkAAAALAAcAAAALAAkAAAAMAAcAAAALAAkAAAANAAcAAAALAAkAAAAOAAcAAAALAAkAAAAQAAcAAAALAAkAAAAQAAYAAAALAAkAAAAPAAcAAAALAAkAAAAFAAIAAAALAAkAAFAFAAEAAAALAAkAAFAFAAAAAAALAAkAAFAFAP//AAALAAkAAFAFAP7/AAALAAkAAFA=")
 
 [node name="Player" parent="." instance=ExtResource("3_t8c31")]
-position = Vector2(128, 96)
+position = Vector2(144, 96)
+
+[node name="Red" type="Node2D" parent="."]
+modulate = Color(1, 0.262745, 0.286275, 1)
+
+[node name="Gears" type="Node2D" parent="Red"]
+
+[node name="LargeCog" parent="Red/Gears" instance=ExtResource("5_167vu")]
+position = Vector2(40, 120)
+rotation = 1.5708
+
+[node name="AnimatedSprite2D" parent="Red/Gears/LargeCog" index="0"]
+autoplay = "spinning"
+
+[node name="SmallCog" parent="Red/Gears" instance=ExtResource("6_x1k1j")]
+position = Vector2(64, 64)
+rotation = 4.71239
+
+[node name="AnimatedSprite2D" parent="Red/Gears/SmallCog" index="0"]
+autoplay = "spinning"
+
+[node name="SmallCog2" parent="Red/Gears" instance=ExtResource("6_x1k1j")]
+position = Vector2(64, 80)
+rotation = 4.71239
+
+[node name="AnimatedSprite2D" parent="Red/Gears/SmallCog2" index="0"]
+autoplay = "spinning"
+
+[node name="SmallCog3" parent="Red/Gears" instance=ExtResource("6_x1k1j")]
+position = Vector2(64, 96)
+rotation = 4.71239
+
+[node name="AnimatedSprite2D" parent="Red/Gears/SmallCog3" index="0"]
+autoplay = "spinning"
+
+[node name="SmallCog4" parent="Red/Gears" instance=ExtResource("6_x1k1j")]
+position = Vector2(64, 112)
+rotation = 4.71239
+
+[node name="AnimatedSprite2D" parent="Red/Gears/SmallCog4" index="0"]
+autoplay = "spinning"
+
+[node name="Fans" type="Node2D" parent="Red"]
+
+[node name="Fan" parent="Red/Fans" instance=ExtResource("4_t8c31")]
+position = Vector2(80, 112)
+
+[node name="RayCast2D" parent="Red/Fans/Fan" index="2"]
+x_force = 40.0
+
+[node name="Fan2" parent="Red/Fans" instance=ExtResource("4_t8c31")]
+position = Vector2(80, 96)
+
+[node name="RayCast2D" parent="Red/Fans/Fan2" index="2"]
+x_force = 40.0
+
+[node name="Fan3" parent="Red/Fans" instance=ExtResource("4_t8c31")]
+position = Vector2(80, 80)
+
+[node name="RayCast2D" parent="Red/Fans/Fan3" index="2"]
+x_force = 40.0
+
+[node name="Fan4" parent="Red/Fans" instance=ExtResource("4_t8c31")]
+position = Vector2(80, 64)
+
+[node name="RayCast2D" parent="Red/Fans/Fan4" index="2"]
+x_force = 40.0
+
+[node name="Blue" type="Node2D" parent="."]
+modulate = Color(0, 0.454902, 1, 1)
+
+[node name="Lever" parent="Blue" instance=ExtResource("5_rc141")]
+position = Vector2(104, 112)
+
+[editable path="Red/Gears/LargeCog"]
+[editable path="Red/Gears/SmallCog"]
+[editable path="Red/Gears/SmallCog2"]
+[editable path="Red/Gears/SmallCog3"]
+[editable path="Red/Gears/SmallCog4"]
+[editable path="Red/Fans/Fan"]
+[editable path="Red/Fans/Fan2"]
+[editable path="Red/Fans/Fan3"]
+[editable path="Red/Fans/Fan4"]

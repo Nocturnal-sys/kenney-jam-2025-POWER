@@ -2363,9 +2363,13 @@ tile_map_data = PackedByteArray("AAANABMAAgALAAwAAAAOABMAAgALAAwAAAAPABMAAgALAAw
 tile_set = SubResource("TileSet_fcfvj")
 
 [node name="Fan" parent="." instance=ExtResource("5_evi0p")]
+process_mode = 1
 modulate = Color(0.223239, 0.768917, 0.278447, 1)
 position = Vector2(368, 320)
 rotation = -1.5708
+
+[node name="RayCast2D" parent="Fan" index="2"]
+y_force = -10.0
 
 [node name="Instructions" type="Label" parent="."]
 offset_left = 224.0
@@ -2397,3 +2401,4 @@ tile_map_data = PackedByteArray("AAASABYAAAAGAAsAAGA=")
 [editable path="Cogs/MovingCogs/LargeCog3"]
 [editable path="Cogs/MovingCogs/LargeCog5"]
 [editable path="Cogs/MovingCogs/SmallCog3"]
+[editable path="Fan"]

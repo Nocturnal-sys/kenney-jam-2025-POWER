@@ -1,17 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://tcoskx2wq7qo"]
+[gd_scene load_steps=10 format=3 uid="uid://v2kdtlpmrdrl"]
 
-[ext_resource type="Script" uid="uid://cvkkpawanv3my" path="res://Scripts/fan.gd" id="1_u6u5o"]
-[ext_resource type="Texture2D" uid="uid://h2nlq76ipmut" path="res://Assets/TileMaps/monochrome_tilemap_packed.png" id="2_kj0mt"]
-[ext_resource type="Script" uid="uid://iibdh1ibjcxd" path="res://Scripts/Classes/player_mover.gd" id="3_kj0mt"]
+[ext_resource type="Script" uid="uid://r2n3anvsoqw6" path="res://Scripts/fan_sideways.gd" id="1_r57em"]
+[ext_resource type="Texture2D" uid="uid://h2nlq76ipmut" path="res://Assets/TileMaps/monochrome_tilemap_packed.png" id="2_sk180"]
+[ext_resource type="Script" uid="uid://iibdh1ibjcxd" path="res://Scripts/Classes/player_mover.gd" id="3_sk180"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7l2ec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ml7w"]
-atlas = ExtResource("2_kj0mt")
+atlas = ExtResource("2_sk180")
 region = Rect2(144, 272, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tc01m"]
-atlas = ExtResource("2_kj0mt")
+atlas = ExtResource("2_sk180")
 region = Rect2(160, 272, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qoasc"]
@@ -31,19 +31,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5n3l"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ip43"]
-size = Vector2(88, 1.40845)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r57em"]
+size = Vector2(80, 1.40845)
 
 [node name="Fan" type="StaticBody2D"]
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_7l2ec")
-script = ExtResource("1_u6u5o")
+script = ExtResource("1_r57em")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, -8)
 sprite_frames = SubResource("SpriteFrames_qoasc")
 animation = &"spinning"
+autoplay = "spinning"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, -8)
@@ -54,9 +55,9 @@ position = Vector2(8, -8)
 scale = Vector2(1, 11.36)
 collision_layer = 8
 collision_mask = 2
-script = ExtResource("3_kj0mt")
+script = ExtResource("3_sk180")
 metadata/_custom_type_script = "uid://iibdh1ibjcxd"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RayCast2D"]
-position = Vector2(36, 5.96046e-08)
-shape = SubResource("RectangleShape2D_4ip43")
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_r57em")
