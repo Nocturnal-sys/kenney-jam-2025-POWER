@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bbyhwuf357c4t"]
+[gd_scene load_steps=27 format=4 uid="uid://bbyhwuf357c4t"]
 
 [ext_resource type="Script" uid="uid://yh3tcegytxgn" path="res://Scripts/level_2.gd" id="1_pnnky"]
 [ext_resource type="PackedScene" uid="uid://dd6h8bkyemtnh" path="res://Scenes/TileMapLayers/world.tscn" id="2_ucdhh"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dnto5pl03761b" path="res://Scenes/Components/small_cog.tscn" id="5_8qsmg"]
 [ext_resource type="PackedScene" uid="uid://tcoskx2wq7qo" path="res://Scenes/Components/fan.tscn" id="5_ovj6s"]
 [ext_resource type="PackedScene" uid="uid://dclo2ctqn2u5" path="res://Scenes/Components/large_cog.tscn" id="6_fphuk"]
+[ext_resource type="Texture2D" uid="uid://bio7exo8ofxqq" path="res://Assets/TileMaps/monochrome_tilemap_transparent_packed.png" id="8_uqiic"]
 [ext_resource type="Texture2D" uid="uid://h2nlq76ipmut" path="res://Assets/TileMaps/monochrome_tilemap_packed.png" id="9_0x4y1"]
 [ext_resource type="PackedScene" uid="uid://lh3k2xlqqicf" path="res://Scenes/Components/death_zone.tscn" id="9_blpqv"]
 [ext_resource type="PackedScene" uid="uid://b1ng680rycr1b" path="res://Scenes/TileMapLayers/foreground.tscn" id="10_1jlnc"]
@@ -27,6 +28,28 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 480, 448, 0, 0, 0, 0, 512, 448)
 }
 point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w138j"]
+atlas = ExtResource("8_uqiic")
+region = Rect2(112, 288, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nggto"]
+atlas = ExtResource("8_uqiic")
+region = Rect2(112, 304, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htkid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w138j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nggto")
+}],
+"loop": true,
+"name": &"spinning",
+"speed": 5.0
+}]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7l2ec"]
 
@@ -54,6 +77,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5n3l"]
 size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqiic"]
+size = Vector2(80, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blpqv"]
 size = Vector2(48, 17)
@@ -105,7 +131,7 @@ loop = false
 rotation = 1.5708
 
 [node name="World" parent="." instance=ExtResource("2_ucdhh")]
-tile_map_data = PackedByteArray("AAAaABsAAAAKAAkAAAAbABsAAAALAAkAAAAcABsAAAALAAkAAAAYABwAAAALAAkAAAAZABwAAAALAAkAAAAdABsAAAALAAkAAAAeABsAAAALAAwAAAAfABsAAAALAAwAAAAgABsAAAALAAwAAAAhABsAAAALAAwAAAAaABwAAAAOAAoAADAdABwAAAAMAA4AAAAcABwAAAALAAYAAAAbABwAAAALAAYAAAAYAB0AAAALAAYAAAAZAB0AAAALAAYAAAAaAB0AAAALAAYAAAAbAB0AAAALAAYAAAAcAB0AAAALAAYAAAAdAB0AAAALAAYAAAAeAB0AAAALAAsAACAfAB0AAAALAAsAACAgAB0AAAALAAsAACAhAB0AAAALAAsAACAiABoAAAALAAkAAGAiABkAAAALAAkAAGAiABgAAAALAAkAAGAiABcAAAAKAA4AAAAiABYAAAAKAAkAAAAgAB4AAAALAAoAAAAhAB4AAAALAAYAAAAiABwAAAALAAkAAGAiABsAAAALAAkAAGAjABYAAAALAAkAAAAkABYAAAALAAkAAAAlABYAAAALAAkAAAAmABYAAAALAAkAAAAnABYAAAALAAkAAAAoABYAAAALAAkAAAAZABsAAAADAAkAAAAYABsAAAADAAkAAAAXABsAAAADAAkAAAARABwAAAAMAAkAAAARABsAAAADAAkAAAAMABsAAAALAAkAAAALABsAAAALAAkAAAAKABsAAAALAAkAAAANABsAAAALAAkAAAAQABwAAAALAAkAAAAPABwAAAALAAkAAAAQABsAAAADAAkAAAAPABsAAAADAAkAAAAOABsAAAAMAAkAAAAOABwAAAAOAAoAAGAXABwAAAALAAkAAAAWABwAAAALAAkAAAAVABwAAAAKAAkAAAAVAB0AAAAKAA4AAAARAB0AAAAKAA4AABAWABsAAAADAAkAAAAVABsAAAADAAkAAAAUAB4AAAALAAkAAAATAB4AAAALAAkAAAASAB4AAAAKAAkAAAASAB8AAAAKAA4AAAAVAB4AAAAOAAoAADAUABwAAAAIAAsAAAATABwAAAAIAAsAAAASABwAAAAIAAsAAAA=")
+tile_map_data = PackedByteArray("AAAaABsAAAAKAAkAAAAbABsAAAALAAkAAAAcABsAAAALAAkAAAAYABwAAAALAAkAAAAZABwAAAALAAkAAAAdABsAAAALAAkAAAAeABsAAAALAAwAAAAfABsAAAALAAwAAAAgABsAAAALAAwAAAAhABsAAAALAAwAAAAaABwAAAAOAAoAADAdABwAAAAMAA4AAAAcABwAAAALAAYAAAAbABwAAAALAAYAAAAYAB0AAAALAAYAAAAZAB0AAAALAAYAAAAaAB0AAAALAAYAAAAbAB0AAAALAAYAAAAcAB0AAAALAAYAAAAdAB0AAAALAAYAAAAeAB0AAAALAAsAACAfAB0AAAALAAsAACAgAB0AAAALAAsAACAhAB0AAAALAAsAACAiABoAAAALAAkAAGAiABkAAAALAAkAAGAiABgAAAALAAkAAGAiABcAAAAKAA4AAAAiABYAAAAKAAkAAAAgAB4AAAALAAoAAAAhAB4AAAALAAYAAAAiABwAAAALAAkAAGAiABsAAAALAAkAAGAjABYAAAALAAkAAAAkABYAAAALAAkAAAAlABYAAAALAAkAAAAmABYAAAALAAkAAAAnABYAAAALAAkAAAAoABYAAAALAAkAAAAZABsAAAADAAkAAAAYABsAAAADAAkAAAAXABsAAAADAAkAAAARABwAAAAMAAkAAAARABsAAAADAAkAAAAMABsAAAALAAkAAAALABsAAAALAAkAAAANABsAAAALAAkAAAAQABwAAAALAAkAAAAPABwAAAALAAkAAAAQABsAAAADAAkAAAAPABsAAAADAAkAAAAOABsAAAAMAAkAAAAOABwAAAAOAAoAAGAXABwAAAALAAkAAAAWABwAAAALAAkAAAAVABwAAAAKAAkAAAAVAB0AAAAKAA4AAAARAB0AAAAKAA4AABAWABsAAAADAAkAAAAVABsAAAADAAkAAAAUAB4AAAALAAkAAAATAB4AAAALAAkAAAASAB4AAAAKAAkAAAASAB8AAAAKAA4AAAAVAB4AAAAOAAoAADAUABwAAAAIAAsAAAATABwAAAAIAAsAAAASABwAAAAIAAsAAAAKABoAAAAMAA4AAAAKABkAAAAMAA4AAAAKABgAAAAMAA4AAAAKABcAAAAMAA4AAAAKABYAAAAMAA4AAAAKABUAAAAMAA4AAAAKABQAAAAMAA4AAAALABMAAAALAAsAAAAMABMAAAALAAsAAAANABMAAAALAAsAAAAOABMAAAALAAsAAAAPABMAAAALAAsAAAAQABMAAAALAAsAAAARABMAAAALAAsAAAASABMAAAALAAsAAAATABMAAAALAAsAAAAUABMAAAALAAsAAAAVABMAAAALAAsAAAAWABMAAAALAAsAAAAXABMAAAALAAsAAAAYABMAAAALAAsAAAAZABMAAAALAAsAAAAaABMAAAALAAsAAAAbABMAAAALAAsAAAAcABMAAAALAAsAAAAdABMAAAALAAsAAAAeABMAAAALAAsAAAAfABMAAAALAAsAAAAgABMAAAALAAsAAAAhABMAAAALAAsAAAAiABMAAAALAAsAAAAjABMAAAALAAsAAAAkABQAAAAKAA4AAAA=")
 
 [node name="Player" parent="." instance=ExtResource("4_w2ac1")]
 position = Vector2(184, 416)
@@ -138,7 +164,9 @@ position = Vector2(272, 480)
 rotation = 1.5708
 
 [node name="AnimatedSprite2D" parent="ForeverCogs/LargeCog1" index="0"]
+sprite_frames = SubResource("SpriteFrames_htkid")
 autoplay = "spinning"
+frame_progress = 0.0
 
 [node name="StaticFans" type="Node2D" parent="."]
 
@@ -195,6 +223,7 @@ position = Vector2(368, 440)
 
 [node name="CollisionShape2D" parent="DeathZone/Area2D" index="0"]
 position = Vector2(8, 6)
+shape = SubResource("RectangleShape2D_uqiic")
 
 [node name="DeathZone2" parent="." instance=ExtResource("9_blpqv")]
 position = Vector2(248, 448)
@@ -204,7 +233,7 @@ position = Vector2(16, -2.5)
 shape = SubResource("RectangleShape2D_blpqv")
 
 [node name="Foreground" parent="." instance=ExtResource("10_1jlnc")]
-tile_map_data = PackedByteArray("AAAUABwAAAAGAAsAAAATABwAAAAGAAsAAAASABwAAAAGAAsAAAA=")
+tile_map_data = PackedByteArray("AAAUABwAAAAGAAsAAAATABwAAAAGAAsAAAASABwAAAAGAAsAAAAOAB4AAAALAAYAAAAPAB0AAAALAAYAAAAQAB4AAAAMAA4AAAAPAB8AAAALAAYAAAANAB4AAAALAAYAAAAQAB0AAAAMAA4AAAARABwAAAAMAAwAAAAQAB8AAAAMAA4AAAARACAAAAALAAsAACAOAB8AAAALAAYAAAAOAB0AAAALAAYAAAAPAB4AAAALAAYAAAA=")
 
 [node name="Door" parent="." instance=ExtResource("11_u40f0")]
 position = Vector2(584, 344)

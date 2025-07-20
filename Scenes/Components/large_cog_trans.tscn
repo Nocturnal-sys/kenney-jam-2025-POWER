@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://o1nq8tfsb5do"]
+
+[ext_resource type="Script" uid="uid://bxndxms8t1tdy" path="res://Scripts/cog.gd" id="1_uygkt"]
+[ext_resource type="Texture2D" uid="uid://bio7exo8ofxqq" path="res://Assets/TileMaps/monochrome_tilemap_transparent_packed.png" id="2_uygkt"]
+[ext_resource type="Texture2D" uid="uid://dm5d46bs8loru" path="res://Assets/Sprites/shaft_trans.png" id="3_5xbxq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w138j"]
+atlas = ExtResource("2_uygkt")
+region = Rect2(112, 288, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nggto"]
+atlas = ExtResource("2_uygkt")
+region = Rect2(112, 304, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htkid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w138j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nggto")
+}],
+"loop": true,
+"name": &"spinning",
+"speed": 5.0
+}]
+
+[node name="LargeCog" type="Node2D"]
+script = ExtResource("1_uygkt")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_htkid")
+animation = &"spinning"
+frame_progress = 0.415854
+
+[node name="Shaft" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("3_5xbxq")
+
+[node name="Shaft2" type="Sprite2D" parent="."]
+position = Vector2(8, 24)
+texture = ExtResource("3_5xbxq")
+
+[node name="Shaft3" type="Sprite2D" parent="."]
+position = Vector2(8, 40)
+texture = ExtResource("3_5xbxq")
+
+[node name="Shaft4" type="Sprite2D" parent="."]
+position = Vector2(8, 56)
+texture = ExtResource("3_5xbxq")

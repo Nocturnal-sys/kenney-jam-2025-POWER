@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://qvixirnsuvxi"]
+
+[ext_resource type="Texture2D" uid="uid://dm5d46bs8loru" path="res://Assets/Sprites/shaft_trans.png" id="1_eqvub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0ayy"]
+size = Vector2(6, 32)
+
+[node name="MechDoor" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("1_eqvub")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(8, 24)
+texture = ExtResource("1_eqvub")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8, 16)
+shape = SubResource("RectangleShape2D_r0ayy")

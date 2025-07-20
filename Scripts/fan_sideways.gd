@@ -20,6 +20,10 @@ func _physics_process(_delta: float) -> void:
 				strength = 10000 * 1/(distance * distance)
 				body.velocity.x += strength
 
+func toggle_process() -> void:
+	ray.toggle_process()
+
+
 func toggle_animation() -> void:
 	if animated_sprite.is_playing():
 		animated_sprite.pause()

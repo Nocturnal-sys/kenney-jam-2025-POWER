@@ -13,5 +13,5 @@ func reset_progress(body: Player) -> void:
 
 func _on_player_advance_level() -> void:
 	door.play_animation()
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(1).timeout
 	LevelSwitcher.advance_level(next)

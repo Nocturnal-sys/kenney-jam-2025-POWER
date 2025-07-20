@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccaa261tfnik7"]
+
+[ext_resource type="Script" uid="uid://bxndxms8t1tdy" path="res://Scripts/cog.gd" id="1_0cw58"]
+[ext_resource type="Texture2D" uid="uid://jfobyur51a7j" path="res://Assets/TileMaps/monochrome_tilemap_transparent.png" id="2_0cw58"]
+[ext_resource type="Texture2D" uid="uid://dm5d46bs8loru" path="res://Assets/Sprites/shaft_trans.png" id="3_biam1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtdt3"]
+atlas = ExtResource("2_0cw58")
+region = Rect2(153, 238, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mrrw"]
+atlas = ExtResource("2_0cw58")
+region = Rect2(153, 255, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5pli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtdt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mrrw")
+}],
+"loop": true,
+"name": &"spinning",
+"speed": 8.0
+}]
+
+[node name="SmallCog" type="Node2D"]
+script = ExtResource("1_0cw58")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_f5pli")
+animation = &"spinning"
+frame = 1
+frame_progress = 0.281707
+
+[node name="Shaft" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("3_biam1")
+
+[node name="Shaft2" type="Sprite2D" parent="."]
+position = Vector2(8, 24)
+texture = ExtResource("3_biam1")

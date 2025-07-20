@@ -21,6 +21,10 @@ func _physics_process(_delta: float) -> void:
 				#area.velocity.y -= 20
 				area.fly()
 
+func toggle_process() -> void:
+	ray.toggle_process()
+
+
 func toggle_animation() -> void:
 	if animated_sprite.is_playing():
 		animated_sprite.pause()

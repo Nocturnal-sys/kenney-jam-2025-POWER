@@ -64,7 +64,6 @@ radius = 0.0
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_cvnsp")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qlg0r")
@@ -79,10 +78,12 @@ position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_tuyoq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 16)
 zoom = Vector2(2.5, 2.5)
 
 [node name="MoverDetector" type="Area2D" parent="."]
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoverDetector"]
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_coypj")

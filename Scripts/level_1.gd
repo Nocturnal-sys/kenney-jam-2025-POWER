@@ -9,7 +9,7 @@ extends Level
 
 
 func _ready() -> void:
-	fan.set_process(false)
+	ray.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _color_groups() -> void:
@@ -21,7 +21,7 @@ func _toggle_fan():
 	for cog in puzzle_cogs:
 		cog.toggle_animation()
 	if fan.is_spinning() == true:
-		fan.set_process(false)
+		ray.process_mode = Node.PROCESS_MODE_DISABLED
 	else:
-		fan.set_process(true)
+		ray.process_mode = Node.PROCESS_MODE_INHERIT
 	fan.toggle_animation()
