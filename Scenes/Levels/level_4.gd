@@ -8,9 +8,13 @@ extends Level
 @onready var red_door: PathFollow2D = $Red/Door/Path2D2/PathFollow2D
 
 @onready var orange_fan: StaticBody2D = $Orange/Fans/Fan
+@onready var orange_door: PathFollow2D = $Orange/Door/Path2D/PathFollow2D
+@onready var orange_gear: PathFollow2D = $Orange/Gears/GoesDown/SmallPathFollow2D
+
+@onready var green_gear: PathFollow2D = $Green/Gears/Moveable/SmallPath/SmallPathFollow2D
 
 
-@export var forever_paths : Array[PathFollow2D]
+@export var forever_paths: Array[PathFollow2D]
 
 
 var blue_lever_on: bool = false
@@ -22,10 +26,18 @@ var red_animated: bool = false
 var green_lever_on: bool = false
 var green_animated: bool = false
 
+var orange_lever_on: bool = false
+
+
+func _ready() -> void:
+	orange_fan.toggle_process()
+	
+
 
 func _process(delta: float) -> void:
 	
 	var gear_speed = 0.5 * delta
+	var slow_gear_speed = 0.2 * delta
 	
 	for path in forever_paths:
 		path.progress_ratio += gear_speed
@@ -41,11 +53,27 @@ func _process(delta: float) -> void:
 		blue_goes_down.get_child(0).toggle_animation()
 
 	if red_lever_on:
-		red_gear.progress_ratio -= gear_speed
+		red_gear.progress_ratio -= slow_gear_speed
+		red_door.progress_ratio -= gear_speed
 	else:
-		red_gear.progress_ratio += gear_speed
+		red_gear.progress_ratio += slow_gear_speed
+		red_door.progress_ratio += gear_speed
 	if red_gear.progress_ratio >= 1 or red_gear.progress_ratio <= 0:
 		red_gear.get_child(0).toggle_animation()
+
+	if orange_lever_on:
+		orange_door.progress_ratio -= gear_speed
+		orange_gear.progress_ratio -= gear_speed
+	else:
+		orange_door.progress_ratio += gear_speed
+		orange_gear.progress_ratio += gear_speed
+
+	if green_lever_on:
+		green_gear.progress_ratio += gear_speed
+	else:
+		green_gear.progress_ratio -= gear_speed
+	if green_gear.progress_ratio >= 1 or green_gear.progress_ratio <= 0:
+		green_gear.get_child(0).toggle_animation()
 
 
 func _on_blue_lever_toggled() -> void:
@@ -59,3 +87,18 @@ func _on_red_lever_toggled() -> void:
 	red_lever_on = !red_lever_on
 	if !red_gear.get_child(0).is_spinning():
 		red_gear.get_child(0).toggle_animation()
+
+
+func _on_green_lever_toggled() -> void:
+	green_lever_on = !green_lever_on
+	if !green_gear.get_child(0).is_spinning():
+		green_gear.get_child(0).toggle_animation()
+
+
+func _on_orange_lever_toggled() -> void:
+	orange_lever_on = !orange_lever_on
+	orange_fan.toggle_animation()
+	orange_fan.toggle_process()
+	if !orange_gear.get_child(0).is_spinning():
+		orange_gear.get_child(0).toggle_animation()
+	

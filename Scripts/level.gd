@@ -5,7 +5,7 @@ extends Node2D
 @export var door : Door
 
 func next_level() -> void:
-	pass
+	LevelSwitcher.advance_level(next)
 
 func reset_progress(body: Player) -> void:
 	get_tree().call_deferred("reload_current_scene")
