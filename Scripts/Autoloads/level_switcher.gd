@@ -17,3 +17,5 @@ func _deferred_goto_level(path : String):
 	current_level = level.instantiate()
 	get_tree().root.add_child(current_level)
 	get_tree().current_scene = current_level
+	#print(path)
+	#get_tree().change_scene_to_file(path)

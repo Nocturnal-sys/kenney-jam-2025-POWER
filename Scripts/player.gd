@@ -59,6 +59,9 @@ func _play_animations() -> void:
 	if is_on_floor():
 		if velocity.x < 0:
 			animated_sprite.flip_h = true
+			ray.rotation = 3.14159
+		elif velocity.x >0:
+			ray.rotation = 0
 		else: 
 			animated_sprite.flip_h = false
 		if velocity.x:

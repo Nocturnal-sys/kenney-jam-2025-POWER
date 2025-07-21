@@ -13,10 +13,12 @@ config_version=5
 config/name="kenney-jam-power"
 run/main_scene="uid://b7bsiftd20vsd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/image="uid://c82pt7lwylsvr"
 
 [autoload]
 
 LevelSwitcher="*res://Scripts/Autoloads/level_switcher.gd"
+Music="*res://Scenes/music.tscn"
 
 [display]
 

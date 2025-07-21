@@ -32,14 +32,16 @@ color = Color(0, 0, 0, 1)
 [node name="Play" parent="ColorRect" instance=ExtResource("2_72uep")]
 layout_mode = 0
 offset_left = 280.0
-offset_top = 224.0
+offset_top = 240.0
 offset_right = 360.0
-offset_bottom = 256.0
+offset_bottom = 272.0
+metadata/_edit_group_ = true
 
 [node name="Label" parent="ColorRect/Play/MarginContainer" index="0"]
 text = "Play"
 
 [node name="Options" parent="ColorRect" instance=ExtResource("2_72uep")]
+visible = false
 layout_mode = 0
 offset_left = 280.0
 offset_top = 264.0

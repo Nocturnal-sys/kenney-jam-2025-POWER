@@ -61,7 +61,9 @@ size = Vector2(32, 16)
 
 [node name="Level3" type="Node2D" node_paths=PackedStringArray("door")]
 script = ExtResource("1_1hf40")
+next = "res://Scenes/Levels/level_4.tscn"
 door = NodePath("Door")
+start_pos = Vector2(152, 96)
 metadata/_custom_type_script = "uid://b2paook80t7fu"
 
 [node name="BackGround" parent="." instance=ExtResource("2_dl55b")]

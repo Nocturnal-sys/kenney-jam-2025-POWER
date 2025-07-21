@@ -69,10 +69,12 @@ _data = {
 }
 point_count = 3
 
-[node name="Level4" type="Node2D" node_paths=PackedStringArray("forever_paths")]
+[node name="Level4" type="Node2D" node_paths=PackedStringArray("forever_paths", "door")]
 script = ExtResource("1_t74h0")
 forever_paths = [NodePath("White/Movable/AlwaysOn/SmallPath/SmallPathFollow2D"), NodePath("White/Movable/AlwaysOn/SmallPath2/SmallPathFollow2D"), NodePath("White/Movable/AlwaysOn/SmallPath3/SmallPathFollow2D")]
 next = "res://Scenes/Levels/end_screen.tscn"
+door = NodePath("Door")
+start_pos = Vector2(56, 200)
 metadata/_custom_type_script = "uid://b2paook80t7fu"
 
 [node name="BackGround" parent="." instance=ExtResource("2_t74h0")]
@@ -423,6 +425,7 @@ tile_map_data = PackedByteArray("AAAMAA4AAAALAAkAAAALAA4AAAALAAkAAAAOAA4AAAALAAk
 [connection signal="lever_toggled" from="Red/Lever2" to="." method="_on_red_lever_toggled"]
 [connection signal="lever_toggled" from="Green/Lever" to="." method="_on_green_lever_toggled"]
 [connection signal="lever_toggled" from="Blue/Lever" to="." method="_on_blue_lever_toggled"]
+[connection signal="advance_level" from="Player" to="." method="_on_player_advance_level"]
 
 [editable path="World/DeathZone"]
 [editable path="White/Movable/AlwaysOn/SmallPath/SmallPathFollow2D/LargeCog"]
