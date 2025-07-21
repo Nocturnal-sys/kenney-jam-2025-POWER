@@ -18,7 +18,7 @@ boot_splash/image="uid://c82pt7lwylsvr"
 [autoload]
 
 LevelSwitcher="*res://Scripts/Autoloads/level_switcher.gd"
-Music="*res://Scenes/music.tscn"
+Audio="*res://Scenes/audio_manager.tscn"
 
 [display]
 

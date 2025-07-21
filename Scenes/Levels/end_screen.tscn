@@ -55,8 +55,10 @@ _data = {
 }
 point_count = 3
 
-[node name="EndScreen" type="Node2D"]
+[node name="EndScreen" type="Node2D" node_paths=PackedStringArray("paths")]
 script = ExtResource("1_c61cg")
+paths = [NodePath("SmallPath2/SmallPathFollow2D"), NodePath("SmallPath3/SmallPathFollow2D"), NodePath("SmallPath4/SmallPathFollow2D"), NodePath("SmallPath5/SmallPathFollow2D")]
+next = "res://Scenes/Levels/game.tscn"
 metadata/_custom_type_script = "uid://b2paook80t7fu"
 
 [node name="BackGround" parent="." instance=ExtResource("2_c61cg")]

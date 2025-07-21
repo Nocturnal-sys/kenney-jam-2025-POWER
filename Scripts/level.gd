@@ -10,7 +10,7 @@ func next_level() -> void:
 
 func reset_progress(body: Player) -> void:
 	#get_tree().call_deferred("reload_current_scene")
-	body.global_position = start_pos
+	LevelSwitcher.reset_level()
 
 func _on_player_advance_level() -> void:
 	door.play_animation()
