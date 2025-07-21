@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://3u3tid6n7jvg"]
+[gd_scene load_steps=11 format=3 uid="uid://3u3tid6n7jvg"]
 
 [ext_resource type="Texture2D" uid="uid://c5a5iualwl786" path="res://Assets/Sprites/sprite_frames_transparent.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bp71odbnuu0bg" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://bhjd8vdr1rb3b" path="res://Scenes/Components/Menu/reset_button.tscn" id="3_i6t11"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_3vyb7")
@@ -81,9 +82,14 @@ shape = SubResource("CircleShape2D_tuyoq")
 position = Vector2(0, 16)
 zoom = Vector2(2.5, 2.5)
 
+[node name="ResetButton" parent="Camera2D" instance=ExtResource("3_i6t11")]
+position = Vector2(-112, -80)
+
 [node name="MoverDetector" type="Area2D" parent="."]
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoverDetector"]
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_coypj")
+
+[connection signal="button_pressed" from="Camera2D/ResetButton" to="." method="_on_reset_button_button_pressed"]

@@ -79,3 +79,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact"):
 		if ray.is_colliding() and ray.get_collider() is Door:
 			advance_level.emit()
+
+
+func _on_reset_button_button_pressed() -> void:
+	LevelSwitcher.reset_level()

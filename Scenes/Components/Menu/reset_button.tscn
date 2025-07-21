@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhjd8vdr1rb3b"]
+
+[ext_resource type="Script" uid="uid://dbo3p4eh21lgm" path="res://Scripts/reset_button.gd" id="1_2dxb0"]
+[ext_resource type="Texture2D" uid="uid://ddqndux4oyntt" path="res://Assets/Sprites/reset.png" id="2_hdv0m"]
+
+[node name="ResetButton" type="Node2D"]
+script = ExtResource("1_2dxb0")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 0.705882, 1, 1)
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(8, 8)
+texture = ExtResource("2_hdv0m")
+flip_h = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -235,6 +235,9 @@ position = Vector2(320, 360)
 process_mode = 4
 enabled = false
 
+[node name="ResetButton" parent="Player/Camera2D" index="0"]
+visible = false
+
 [node name="Lever" parent="." instance=ExtResource("10_8bshs")]
 position = Vector2(312, 432)
 
