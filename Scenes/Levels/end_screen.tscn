@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=4 uid="uid://c65d647dp146c"]
 
-[ext_resource type="Script" uid="uid://dguw5jj6tcfer" path="res://Scenes/Levels/end_screen.gd" id="1_c61cg"]
+[ext_resource type="Script" uid="uid://dguw5jj6tcfer" path="res://Scripts/end_screen.gd" id="1_c61cg"]
 [ext_resource type="PackedScene" uid="uid://cattutg5k2xwt" path="res://Scenes/TileMapLayers/back_ground.tscn" id="2_c61cg"]
 [ext_resource type="FontFile" uid="uid://b4a13jftw43sy" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_15apk"]
 [ext_resource type="Texture2D" uid="uid://c82pt7lwylsvr" path="res://Assets/Sprites/get-in-gear.png" id="4_llnnu"]
@@ -55,10 +55,8 @@ _data = {
 }
 point_count = 3
 
-[node name="EndScreen" type="Node2D" node_paths=PackedStringArray("paths")]
+[node name="EndScreen" type="Node2D"]
 script = ExtResource("1_c61cg")
-paths = [NodePath("SmallPath2/SmallPathFollow2D"), NodePath("SmallPath3/SmallPathFollow2D"), NodePath("SmallPath4/SmallPathFollow2D"), NodePath("SmallPath5/SmallPathFollow2D")]
-next = "res://Scenes/Levels/game.tscn"
 metadata/_custom_type_script = "uid://b2paook80t7fu"
 
 [node name="BackGround" parent="." instance=ExtResource("2_c61cg")]

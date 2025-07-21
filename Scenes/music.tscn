@@ -8,3 +8,4 @@
 stream = ExtResource("1_fbmny")
 volume_db = -30.0
 autoplay = true
+panning_strength = 0.0
