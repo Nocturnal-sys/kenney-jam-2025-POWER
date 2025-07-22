@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://32gntw6a0afi"]
+
+[ext_resource type="Script" uid="uid://cwp1y81r1lm0y" path="res://scenes/Levels/pause_menu.gd" id="1_p5akd"]
+[ext_resource type="PackedScene" uid="uid://chhr4wcn1fpbt" path="res://Scenes/Components/Menu/menu_button.tscn" id="2_2gpd5"]
+
+[node name="PauseMenu" type="Node2D"]
+script = ExtResource("1_p5akd")
+next = null
+start_pos = null
+metadata/_custom_type_script = "uid://b2paook80t7fu"
+
+[node name="Content" type="Node2D" parent="."]
+position = Vector2(320, 224)
+
+[node name="bg" type="ColorRect" parent="Content"]
+offset_left = -320.0
+offset_top = -224.0
+offset_right = 320.0
+offset_bottom = 256.0
+color = Color(0.109804, 0.109804, 0.109804, 0.878431)
+
+[node name="ResumeButton" parent="Content" instance=ExtResource("2_2gpd5")]
+offset_left = -35.0
+offset_top = -30.0
+offset_right = 35.0
+offset_bottom = -9.0
+
+[node name="Label" parent="Content/ResumeButton/MarginContainer" index="0"]
+text = "Resume"
+
+[node name="OptionsButton" parent="Content" instance=ExtResource("2_2gpd5")]
+offset_left = -35.0
+offset_top = 8.0
+offset_right = 35.0
+offset_bottom = 29.0
+
+[node name="Label" parent="Content/OptionsButton/MarginContainer" index="0"]
+text = "Options"
+
+[node name="CameraAnchor" type="Node2D" parent="."]
+position = Vector2(320, 224)
+
+[connection signal="pressed" from="Content/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Content/OptionsButton" to="." method="_on_options_button_pressed"]
+
+[editable path="Content/ResumeButton"]
+[editable path="Content/OptionsButton"]
