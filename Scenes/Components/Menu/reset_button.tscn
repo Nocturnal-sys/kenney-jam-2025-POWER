@@ -1,17 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhjd8vdr1rb3b"]
+[gd_scene load_steps=4 format=3 uid="uid://bhjd8vdr1rb3b"]
 
 [ext_resource type="Script" uid="uid://dbo3p4eh21lgm" path="res://Scripts/reset_button.gd" id="1_2dxb0"]
 [ext_resource type="Texture2D" uid="uid://ddqndux4oyntt" path="res://Assets/Sprites/reset.png" id="2_hdv0m"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dxb0"]
+draw_center = false
+
 [node name="ResetButton" type="Node2D"]
+modulate = Color(1, 0.705882, 1, 1)
 script = ExtResource("1_2dxb0")
 
 [node name="Button" type="Button" parent="."]
-modulate = Color(1, 0.705882, 1, 1)
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_2dxb0")
 flat = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Button"]

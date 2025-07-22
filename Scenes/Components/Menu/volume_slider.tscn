@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://uhgyy30vv8vj"]
+
+[ext_resource type="Script" uid="uid://bdtxkkgjybbkj" path="res://Scripts/volume_slider.gd" id="1_7cnml"]
+[ext_resource type="Texture2D" uid="uid://dwuwqedrb7mrn" path="res://Assets/Sprites/slider_grabber.png" id="1_8ftb1"]
+[ext_resource type="FontFile" uid="uid://b4a13jftw43sy" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_jh4te"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh4te"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.230315, 0.230315, 0.230315, 1)
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7aie"]
+bg_color = Color(0.856067, 0.856067, 0.856067, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0ag4"]
+bg_color = Color(0.854902, 0.854902, 0.854902, 1)
+
+[node name="VolumeSlider" type="HSlider"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 64.0
+offset_right = -544.0
+offset_bottom = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_icons/grabber = ExtResource("1_8ftb1")
+theme_override_icons/grabber_highlight = ExtResource("1_8ftb1")
+theme_override_styles/slider = SubResource("StyleBoxFlat_jh4te")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_k7aie")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_j0ag4")
+max_value = 1.0
+step = 0.01
+value = 0.5
+script = ExtResource("1_7cnml")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 104.0
+offset_right = 146.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("3_jh4te")
+theme_override_font_sizes/font_size = 16
+text = "100"
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

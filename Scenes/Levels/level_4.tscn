@@ -194,6 +194,16 @@ autoplay = ""
 [node name="RayCast2D" parent="Orange/Fans/Fan" index="2"]
 x_force = -50.0
 
+[node name="Fan2" parent="Orange/Fans" instance=ExtResource("6_gsxik")]
+position = Vector2(768, 64)
+rotation = 3.14159
+
+[node name="AnimatedSprite2D" parent="Orange/Fans/Fan2" index="0"]
+autoplay = ""
+
+[node name="RayCast2D" parent="Orange/Fans/Fan2" index="2"]
+x_force = -50.0
+
 [node name="Door" type="Node2D" parent="Orange"]
 
 [node name="Path2D" type="Path2D" parent="Orange/Door"]
@@ -414,7 +424,7 @@ curve = SubResource("Curve2D_slbhm")
 position = Vector2(488, 120)
 
 [node name="Player" parent="." instance=ExtResource("6_keyqw")]
-position = Vector2(56, 200)
+position = Vector2(688, 112)
 
 [node name="Foreground" parent="." instance=ExtResource("7_i4hbv")]
 tile_map_data = PackedByteArray("AAAMAA4AAAALAAkAAAALAA4AAAALAAkAAAAOAA4AAAALAAkAAAAPAA4AAAALAAkAAAAQAA4AAAALAAkAAAARAA4AAAALAAkAAAAlAA4AAAALAAkAAAAmAA4AAAALAAkAAAAnAA4AAAALAAkAAAAoAA4AAAALAAkAAAApAA4AAAALAAkAAAAqAA4AAAALAAkAAAArAA4AAAALAAkAAAAsAA4AAAALAAkAAAAtAA4AAAALAAkAAAAVAA4AAAALAAkAAAAbAA0AAAAKAA4AAAAbAAwAAAAKAAkAAAAcAAwAAAALAAkAAAAdAAwAAAAMAAkAAAAdAA0AAAAMAA4AAAAcAA0AAAALAAYAAAAjAA4AAAALAAkAAAA=")
@@ -432,4 +442,5 @@ tile_map_data = PackedByteArray("AAAMAA4AAAALAAkAAAALAA4AAAALAAkAAAAOAA4AAAALAAk
 [editable path="White/Movable/AlwaysOn/SmallPath2/SmallPathFollow2D/LargeCog"]
 [editable path="White/Movable/AlwaysOn/SmallPath3/SmallPathFollow2D/LargeCog"]
 [editable path="Orange/Fans/Fan"]
+[editable path="Orange/Fans/Fan2"]
 [editable path="Blue/Lever"]

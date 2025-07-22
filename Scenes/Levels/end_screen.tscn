@@ -228,6 +228,9 @@ autoplay = "spinning"
 y_force = -40.0
 x_force = -40.0
 
+[node name="Lever" parent="." instance=ExtResource("10_8bshs")]
+position = Vector2(312, 432)
+
 [node name="Player" parent="." instance=ExtResource("9_8bshs")]
 position = Vector2(320, 360)
 
@@ -237,9 +240,6 @@ enabled = false
 
 [node name="ResetButton" parent="Player/Camera2D" index="0"]
 visible = false
-
-[node name="Lever" parent="." instance=ExtResource("10_8bshs")]
-position = Vector2(312, 432)
 
 [connection signal="lever_toggled" from="Lever" to="." method="next_level"]
 

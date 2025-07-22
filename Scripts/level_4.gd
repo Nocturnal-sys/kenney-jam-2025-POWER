@@ -8,6 +8,7 @@ extends Level
 @onready var red_door: PathFollow2D = $Red/Door/Path2D2/PathFollow2D
 
 @onready var orange_fan: StaticBody2D = $Orange/Fans/Fan
+@onready var orange_fan_2: StaticBody2D = $Orange/Fans/Fan2
 @onready var orange_door: PathFollow2D = $Orange/Door/Path2D/PathFollow2D
 @onready var orange_gear: PathFollow2D = $Orange/Gears/GoesDown/SmallPathFollow2D
 
@@ -31,6 +32,7 @@ var orange_lever_on: bool = false
 
 func _ready() -> void:
 	orange_fan.toggle_process()
+	orange_fan_2.toggle_process()
 	
 
 
@@ -98,7 +100,9 @@ func _on_green_lever_toggled() -> void:
 func _on_orange_lever_toggled() -> void:
 	orange_lever_on = !orange_lever_on
 	orange_fan.toggle_animation()
+	orange_fan_2.toggle_animation()
 	orange_fan.toggle_process()
+	orange_fan_2.toggle_process()
 	if !orange_gear.get_child(0).is_spinning():
 		orange_gear.get_child(0).toggle_animation()
 	

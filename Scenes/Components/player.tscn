@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://3u3tid6n7jvg"]
+[gd_scene load_steps=14 format=3 uid="uid://3u3tid6n7jvg"]
 
 [ext_resource type="Texture2D" uid="uid://c5a5iualwl786" path="res://Assets/Sprites/sprite_frames_transparent.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bp71odbnuu0bg" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://bhjd8vdr1rb3b" path="res://Scenes/Components/Menu/reset_button.tscn" id="3_i6t11"]
+[ext_resource type="Texture2D" uid="uid://bio7exo8ofxqq" path="res://Assets/TileMaps/monochrome_tilemap_transparent_packed.png" id="3_p0vwk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_3vyb7")
@@ -11,6 +12,14 @@ region = Rect2(80, 16, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgrgp"]
+atlas = ExtResource("3_p0vwk")
+region = Rect2(48, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5d4g"]
+atlas = ExtResource("3_p0vwk")
+region = Rect2(64, 208, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("1_3vyb7")
@@ -38,10 +47,16 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgrgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5d4g")
+}],
+"loop": false,
 "name": &"jump",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -64,12 +79,15 @@ radius = 0.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 13
+safe_margin = 0.5
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qlg0r")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
+frame = 1
+frame_progress = 1.0
 
 [node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
 target_position = Vector2(16, 0)
