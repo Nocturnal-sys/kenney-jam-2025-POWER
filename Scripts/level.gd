@@ -5,6 +5,9 @@ extends Node2D
 @export var door : Door
 @export var start_pos: Vector2
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
+
 func next_level() -> void:
 	LevelSwitcher.advance_level(next)
 

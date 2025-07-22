@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 
 
 func _ready() -> void:
+	super()
 	for fan in red_fan_start_off.get_children():
 		fan.toggle_process()
 	green_fan.toggle_process()

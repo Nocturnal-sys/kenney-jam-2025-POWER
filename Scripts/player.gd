@@ -4,6 +4,7 @@ class_name Player
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray: RayCast2D = $AnimatedSprite2D/RayCast2D
 @onready var mover: Area2D = $MoverDetector
+@onready var camera: Camera2D = $Camera2D
 
 var overlapping_areas : Array[Node2D]
 var mover_forces : Vector2 = Vector2(0,0)
@@ -84,6 +85,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact"):
 		if ray.is_colliding() and ray.get_collider() is Door:
 			advance_level.emit()
+	if event.is_action_pressed("Pause"):
+		LevelSwitcher.pause_game(get_parent(), camera)
 
 
 func _on_reset_button_button_pressed() -> void:

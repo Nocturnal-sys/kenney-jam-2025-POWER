@@ -31,6 +31,7 @@ var orange_lever_on: bool = false
 
 
 func _ready() -> void:
+	super()
 	orange_fan.toggle_process()
 	orange_fan_2.toggle_process()
 	

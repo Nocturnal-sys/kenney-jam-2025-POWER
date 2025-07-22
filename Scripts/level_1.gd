@@ -9,6 +9,7 @@ extends Level
 
 
 func _ready() -> void:
+	super()
 	ray.process_mode = Node.PROCESS_MODE_DISABLED
 
 
